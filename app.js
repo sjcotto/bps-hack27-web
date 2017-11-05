@@ -3,6 +3,23 @@
 angular.module('x', ['ui.ace'])
   .controller('ctrl', ['$scope', '$http', function ($scope, $http) {
 
+    $scope.view = {
+      screen1: true,
+      screen2: false,
+      screen3: false
+    };
+
+    $scope.nextView = function(screenTo) {
+      if (screenTo === 'screen2') {
+        $scope.view.screen1 = false;
+        $scope.view.screen2 = true;
+      }
+      else {
+        $scope.view.screen2 = false;
+        $scope.view.screen3 = true;
+      }
+    };
+
     console.log('ctrl');
     // The modes
     $scope.aceModel = "";
