@@ -21,7 +21,8 @@ angular.module('x', ['ui.ace'])
 
     $scope.data = {
       startDate : new Date(),
-      endDate : new Date()
+      endDate : new Date(),
+      workHours : "10"
     };
 
     $scope.submit = function() {
