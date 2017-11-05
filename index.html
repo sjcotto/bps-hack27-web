@@ -1,50 +1,56 @@
 <!DOCTYPE html>
 <html ng-app="x">
 
-  <head>
-    <meta charset="utf-8" />
-    <title></title>
+<head>
+  <meta charset="utf-8"/>
+  <title></title>
 
 
-    <!-- Le css -->
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+  <!-- Le css -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css"/>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.js" crossorigin="anonymous"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.5.0/async.js"></script>
-    <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
-    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"></script>
-    <script src="app.js"></script>
-    <style>
-      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-        display: none !important;
-      }
-    </style>
-
-  </head>
-  <body ng-controller="ctrl">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
 
-    <!-- Le content... -->
+  <script src="https://code.jquery.com/jquery-3.2.1.js" crossorigin="anonymous"></script>
 
-    <div class="container">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+          integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+          crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.5.0/async.js"></script>
+  <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"></script>
+  <script src="app.js"></script>
+  <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+
+</head>
+<body ng-controller="ctrl">
 
 
+<!-- Le content... -->
 
+<div class="container">
+
+
+  <div class="row">
+    <div class="col-sm m-3"
+         style="background-repeat: no-repeat;background-size: contain; background-image: url('img/tablet.png')">
+      <h1>&nbsp;</h1>
       <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-10 offset-sm-1">
           <div ng-show="view.screen1">
             <h1>&nbsp;</h1>
-            <div class="row align-items-center">
+            <div class="row p-2 align-items-center">
               <div class="col-sm"></div>
-              <div class="col-sm-8">
+              <div class="col-sm-10">
                 <div>
                   <div class="row btn-menu">
                     <div class="col-sm align-self-center">
@@ -63,9 +69,9 @@
             <br>
             <div class="row align-items-center">
               <div class="col-sm"></div>
-              <div class="col-sm-8">
+              <div class="col-sm-10">
                 <div>
-                  <div ng-click="nextView('screen2')" class="row btn-menu">
+                  <div ng-click="nextView('screen2')" class="row p-2 btn-menu">
                     <div class="col-sm align-self-center">
                       <i class="fa fa-5x fa-envelope-open"></i>
                       <br>
@@ -88,7 +94,7 @@
                 <div class="col-sm">
                   <div class="row btn-menu btn-menu-sm">
                     <div class="col-sm align-self-center">
-                      <i class="fa fa-2x fa-envelope-open"></i>
+                      <i class="fa fa-3x fa-envelope-open"></i>
                       <span class="align-self-center">
                         Solicitar beneficio
                       </span>
@@ -99,48 +105,48 @@
             </div>
             <br>
             <div class="row align-items-center">
-              <div class="col-sm">
+              <div class="col-sm-6">
                 <div class="col-sm">
                   <div class="row btn-menu btn-menu-sm btn-menu-light">
                     <div class="col-sm align-self-center">
-                      <h3>
+                      <span>
                         Pensión Por fallecimiento
-                      </h3>
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-sm">
+              <div class="col-sm-6">
                 <div class="col-sm">
                   <div ng-click="nextView('screen3')" class="row btn-menu btn-menu-sm btn-menu-light">
                     <div class="col-sm align-self-center">
-                      <h3>
+                      <span>
                         Solicitud de obra
-                      </h3>
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="w-100"></div>
               <br>
-              <div class="col-sm">
+              <div class="col-sm-6">
                 <div class="col-sm">
                   <div class="row btn-menu btn-menu-sm btn-menu-light">
                     <div class="col-sm align-self-center">
-                      <h3>
+                      <span>
                         Pensión Por fallecimiento
-                      </h3>
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-sm">
+              <div class="col-sm-6">
                 <div class="col-sm">
                   <div class="row btn-menu btn-menu-sm btn-menu-light">
                     <div class="col-sm align-self-center">
-                      <h3>
+                      <span>
                         Pensión Por fallecimiento
-                      </h3>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -152,7 +158,8 @@
             <form>
               <div class="form-group">
                 <label>Solicitante</label>
-                <input ng-disabled="true" value="Juan Perez" type="text" class="form-control" aria-describedby="emailHelp">
+                <input ng-disabled="true" value="Juan Perez" type="text" class="form-control"
+                       aria-describedby="emailHelp">
               </div>
 
               <div class="form-group">
@@ -174,47 +181,49 @@
 
             <br>
             <div class="form-group">
-                <label>Resultado:</label>
+              <label>Resultado:</label>
             </div>
 
             <table class="table table-striped">
               <thead>
-                <tr>
-                  <th>Organizacion</th>
-                  <th>Aprobacion</th>
-                </tr>
+              <tr>
+                <th>Organizacion</th>
+                <th>Aprobacion</th>
+              </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>BPS</td>
-                  <td>
-                    <div ng-show="data.bps"> <img src="check.png"> </div>
-                  </td>
+              <tr>
+                <td>BPS</td>
+                <td>
+                  <div ng-show="data.bps"><img src="check.png"></div>
+                </td>
 
-                </tr>
-                <tr>
-                  <td>DGI</td>
-                  <td>
-                    <div ng-show="data.dgi"> <img src="check.png"> </div>
-                  </td>
-                </tr>
+              </tr>
+              <tr>
+                <td>DGI</td>
+                <td>
+                  <div ng-show="data.dgi"><img src="check.png"></div>
+                </td>
+              </tr>
               </tbody>
             </table>
 
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="col-sm">
-          <div ng-model="aceModel" ui-ace="{
+    <div class="col-sm">
+      <div ng-model="aceModel" ui-ace="{
               useWrapMode : true,
               showGutter: false,
               theme:'twilight',
               mode: 'javascript',
             }"></div>
-        </div>
-      </div>
+    </div>
+  </div>
 
-   </div>
+</div>
 
-  </body>
+</body>
 </html>
