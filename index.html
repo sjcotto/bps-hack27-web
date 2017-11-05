@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html ng-app="x">
+
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+
+
+    <!-- Le css -->
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.js" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.5.0/async.js"></script>
+    <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"></script>
+    <script src="app.js"></script>
+
+  </head>
+  <body ng-controller="ctrl">
+
+
+    <!-- Le content... -->
+    
+    <div class="container">
+
+   
+
+      <div class="row">
+        <div class="col">
+            
+          <form>
+
+            <div class="form-group">
+              <label>Solicitante</label>
+              <input ng-disabled="true" value="Juan Perez" type="text" class="form-control" aria-describedby="emailHelp">
+            </div>
+
+            <div class="form-group">
+              <label>Jornal</label>
+              <input type="text" ng-model="data.workHours" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+
+            <div class="form-group">
+              <label>Inicio obra</label>
+              <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.startDate">
+            </div>
+            <div class="form-group">
+              <label>Fin obra</label>
+              <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.endDate">
+            </div>
+            
+            <button type="submit" ng-click="submit()" class="btn btn-primary">Submit</button>
+          </form>
+
+          <br>
+          <div class="form-group">
+              <label>Resultado:</label>
+          </div>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Organizacion</th>
+                <th>Aprobacion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- <td><img src="dgi.png"></td> -->
+                <td>BPS</td>
+                <td>
+                  <div ng-show="data.bps"> <img src="check.png"> </div>
+                </td>
+
+              </tr>
+              <tr>
+                <td>DGI</td>
+                <td>
+                  <div ng-show="data.dgi"> <img src="check.png"> </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+          
+        <div class="col">
+          <div ng-model="aceModel" ui-ace="{
+              useWrapMode : true,
+              showGutter: false,
+              theme:'twilight',
+              mode: 'javascript',
+            }"></div>
+        </div>
+      </div>
+
+   </div>
+
+  </body>
+</html>
