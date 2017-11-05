@@ -24,7 +24,8 @@ angular.module('x', ['ui.ace'])
     // The modes
     $scope.aceModel = "";
 
-    var url = 'http://kona-bots.ngrok.io';
+    // var url = 'http://kona-bots.ngrok.io';
+    var url = 'http://localhost:3000';
 
     var requestId = new Date().getTime() + "";
     var ownerId = "1";
@@ -37,9 +38,9 @@ angular.module('x', ['ui.ace'])
     var endDate = "2017-11-04T23:32:31.129Z";
 
     $scope.data = {
-      startDate : new Date(),
-      endDate : new Date(),
-      workHours : "10"
+      // startDate : new Date(),
+      // endDate : new Date(),
+      // workHours : "10"
     };
 
     $scope.submit = function() {
