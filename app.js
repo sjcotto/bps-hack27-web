@@ -25,7 +25,7 @@ angular.module('x', ['ui.ace'])
     $scope.aceModel = "";
 
     // var url = 'http://kona-bots.ngrok.io';
-    var url = 'http://localhost:3000';
+    var url = 'http://apis-dev.konabackend.com:9090';
 
     var requestId = new Date().getTime() + "";
     var ownerId = "1";
@@ -57,10 +57,10 @@ angular.module('x', ['ui.ace'])
           // Asset
 
           $scope.aceModel += "CREANDO ASSET...\n";
-          $http.post(url+'/api/bps.gub.uy.Request', {
+          $http.post(url+'/api/Request', {
               "$class": "bps.gub.uy.Request",
               "id": requestId,
-              "owner": ownerId
+              "owner": "bps.gub.uy.Person#" + ownerId
             }, {
               headers: {'Content-Type': 'application/json'}
             })
@@ -73,11 +73,11 @@ angular.module('x', ['ui.ace'])
         function(response, cb) {
           assetId = response.id;
           $scope.aceModel += "ENVIANDO SOLICITUD...\n";
-          $http.post(url+'/api/bps.gub.uy.BuildRequest', {
+          $http.post(url+'/api/BuildRequest', {
               "$class": "bps.gub.uy.BuildRequest",
-              "requester": requesterId,
-              "worker": workerId,
-              "asset": assetId,
+              "requester": "bps.gub.uy.Person#" +  requesterId,
+              "worker": "bps.gub.uy.Person#" + workerId,
+              "asset": "bps.gub.uy.Request#" +assetId,
               "workHours": workHours,
               "startDate": startDate,
               "endDate": endDate
@@ -93,9 +93,9 @@ angular.module('x', ['ui.ace'])
         function(response, cb) {
           // BPS Approval
           $scope.aceModel += "SOLICITANDO APROBACION BPS...\n";
-          $http.post(url+'/api/bps.gub.uy.BPSApproval', {
+          $http.post(url+'/api/BPSApproval', {
               "$class": "bps.gub.uy.BPSApproval",
-              "asset": assetId
+              "asset": "bps.gub.uy.Request#" +assetId
             }, {
               headers: {'Content-Type': 'application/json'}
             })
@@ -109,9 +109,9 @@ angular.module('x', ['ui.ace'])
         function(response, cb) {
           // DGI Approval
           $scope.aceModel += "SOLICITANDO APROBACION DGI...\n";
-          $http.post(url+'/api/bps.gub.uy.DGIApproval', {
+          $http.post(url+'/api/DGIApproval', {
               "$class": "bps.gub.uy.DGIApproval",
-              "asset": assetId
+              "asset": "bps.gub.uy.Request#" +assetId
             }, {
               headers: {'Content-Type': 'application/json'}
             })
