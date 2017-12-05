@@ -7,12 +7,13 @@
 
 
   <!-- Le css -->
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
   <link rel="stylesheet" type="text/css" href="style.css"/>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
 
   <script src="https://code.jquery.com/jquery-3.2.1.js" crossorigin="anonymous"></script>
 
@@ -37,11 +38,52 @@
 
 <!-- Le content... -->
 
-<div class="container">
+<div class="container-fluid">
+  <div class="row" style="padding: 14px 0">
+    <div class="col">
+      <h1>BLOCKCHAIN DEMO</h1>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-sm m-3">
+    <div class="col">
+      <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-around">
+        <img src="img/bps.png" height="60" alt="">
+        </div>
+        <div class="d-flex justify-content-around">
+        <img src="img/bps.png" height="60" alt="">
+        </div>
+        <div class="d-flex justify-content-around">
+        <img src="img/dgi.png" height="60" alt="">
+        </div>
+        <div class="d-flex justify-content-around">
+        <img src="img/mtss.png" height="60" alt="">
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius fuga fugit provident repellat reprehenderit. Ab
+        cumque eligendi fugiat inventore itaque nesciunt perspiciatis quaerat, quasi qui sapiente. Animi itaque vitae
+        voluptates.</p>
+      <div>
+        <img src="img/logo-k.png" height="120" alt="">
+      </div>
+      <div>
+        <img src="blockchain.png"/>
+      </div>
+      <!--<div>
+        <img src="ibm-bluemix-logo.png"/>
+      </div>-->
+      <div>
+        <img src="logo_hl_new.png"/>
+      </div>
+    </div>
+    <div class="col-sm-5 m-3">
       <div ng-show="view.screen1">
-        <div class="row p-2 align-items-center">
+        <div class="row align-items-center">
           <div class="col-sm"></div>
           <div class="col-sm-10">
             <div>
@@ -202,24 +244,19 @@
     </div>
 
     <div class="col-sm">
-      <div ng-model="aceModel" ui-ace="{
+      <h3>Historial de transacciones</h3>
+      <hr>
+      <div style="background: #f0f0f0;border-radius: 7px" class="p-3">
+        <h4>Envío de solicitud a BPS</h4>
+        <p>Bloque #01&#9;02-12-2017&nbsp;11:40 AM <br>
+          <span class="badge badge-pill badge-success">Aprobado</span></p>
+      </div>
+      <!--<div ng-model="aceModel" ui-ace="{
               useWrapMode : true,
               showGutter: false,
               theme:'twilight',
               mode: 'javascript',
-            }"></div>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-sm-4">
-      <img src="blockchain.png"/>
-    </div>
-    <div class="col-sm-4">
-      <img src="ibm-bluemix-logo.png"/>
-    </div>
-    <div class="col-sm-4">
-      <img src="logo_hl_new.png"/>
+            }"></div>-->
     </div>
   </div>
 
