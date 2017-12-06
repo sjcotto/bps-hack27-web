@@ -114,6 +114,7 @@ angular.module('x', ['ui.ace'])
                 num: '03'
               };
               $scope.blockchain.unshift(newObj);
+              $scope.data.home = true;
               cb(null, response.data);
             })
         },
@@ -158,6 +159,28 @@ angular.module('x', ['ui.ace'])
               };
               $scope.blockchain.unshift(newObj);
               $scope.data.dgi = true;
+              cb(null, response.data);
+            })
+        },
+        function (response, cb) {
+          // DGI Approval
+          $scope.aceModel += "SOLICITANDO APROBACION DGI...\n";
+          $http.post(url + '/api/DGIApproval', {
+            "$class": "bps.gub.uy.DGIApproval",
+            "asset": "bps.gub.uy.Request#" + assetId
+          }, {
+            headers: {'Content-Type': 'application/json'}
+          })
+            .then(function (response, status, headers, config) {
+              var newObj = {
+                obj: response.data, status: 'OK',
+                ace: JSON.stringify(response.data, null, 4),
+                title: 'Aprobación MTSS',
+                date: new Date(),
+                num: '06'
+              };
+              $scope.blockchain.unshift(newObj);
+              $scope.data.mtss = true;
               cb(null, response.data);
             })
         }],

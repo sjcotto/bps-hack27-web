@@ -50,16 +50,16 @@
       <div class="col">
         <div class="d-flex justify-content-around">
           <div class="d-flex justify-content-around">
-            <img src="img/building.png" height="50" alt="">
+            <img src="img/building.png" class="faded" ng-class="{full : data.home}" height="50" alt="">
           </div>
           <div class="d-flex justify-content-around">
-            <img src="img/bps.png" height="50" alt="">
+            <img src="img/bps.png" class="faded" ng-class="{full : data.bps}" height="50" alt="">
           </div>
           <div class="d-flex justify-content-around">
-            <img src="img/dgi.png" height="50" alt="">
+            <img src="img/dgi.png" class="faded" ng-class="{full : data.dgi}" height="50" alt="">
           </div>
           <div class="d-flex justify-content-around">
-            <img src="img/mtss.png" height="50" alt="">
+            <img src="img/mtss.png" class="faded" ng-class="{full : data.mtss}" height="50" alt="">
           </div>
         </div>
         <hr>
@@ -255,6 +255,11 @@
       <div class="p-3 rounded mt-3" style="background: #f0f0f0;" >
         <h3>Historial de transacciones</h3>
         <hr>
+        <div ng-if="!blockchain.length">
+          <p>
+          <i class="fa fa-2x fa-info-circle" style="opacity: 0.5"></i><br> Las transacciones realizadas se verán aquí
+          </p>
+        </div>
         <div ng-repeat="item in blockchain" class="blockchain-item rounded p-2 mb-2">
           <h4>{{item.title}}</h4>
           <p>Bloque #{{item.number}}&#9;{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} <br>

@@ -96,19 +96,28 @@ p {
   -webkit-animation-duration: 1.8s;
   animation-name: glow;
   animation-duration: 1.8s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: 3;
+  animation-iteration-count: 3;
 }
 
 @-webkit-keyframes glow {
   from { box-shadow: 0 0 0 0 #2268b3; }
-  50% { box-shadow: 0 0 20px -1px #2268b3; }
+  50% { box-shadow: 0 0 25px -1px #2268b3; }
   to { box-shadow: 0 0 0 0 #2268b3; }
 }
 
 /* Standard syntax */
 @keyframes glow {
   from { box-shadow: 0 0 0 0 #2268b3; }
-  50% { box-shadow: 0 0 20px -1px #2268b3; }
+  50% { box-shadow: 0 0 25px -1px #2268b3; }
   to { box-shadow: 0 0 0 0 #2268b3; }
+}
+
+.faded {
+  opacity: 0.5;
+  transition: all 0.3s ease
+}
+
+.full {
+  opacity: 1;
 }
