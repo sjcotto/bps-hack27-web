@@ -11,7 +11,7 @@ angular.module('x', ['ui.ace'])
 
     $timeout(function () {
       $scope.hideLoader = true;
-    }, 1500);
+    }, 2500);
 
     $scope.nextView = function (screenTo) {
       if (screenTo === 'screen2') {
@@ -72,7 +72,7 @@ angular.module('x', ['ui.ace'])
         status: 'PENDING',
         title: 'Creando Asset',
         date: new Date(),
-        number: '01'
+        num: '01'
       };
       $scope.blockchain.push(blockObj);
 
@@ -91,7 +91,7 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '02'
               };
-              $scope.blockchain.unshift(newObj);
+              $scope.blockchain.push(newObj);
               cb(null, response.data);
             })
         },
@@ -117,7 +117,7 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '03'
               };
-              $scope.blockchain.unshift(newObj);
+              $scope.blockchain.push(newObj);
               $scope.data.home = true;
               cb(null, response.data);
             })
@@ -139,7 +139,7 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '04'
               };
-              $scope.blockchain.unshift(newObj);
+              $scope.blockchain.push(newObj);
               $scope.data.bps = true;
               cb(null, response.data);
             })
@@ -161,7 +161,7 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '05'
               };
-              $scope.blockchain.unshift(newObj);
+              $scope.blockchain.push(newObj);
               $scope.data.dgi = true;
               cb(null, response.data);
             })
@@ -183,9 +183,10 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '06'
               };
-              $scope.blockchain.unshift(newObj);
+              $scope.blockchain.push(newObj);
               $scope.data.mtss = true;
               cb(null, response.data);
+              $scope.hideForm = true;
             })
         }],
         function (err, response) {

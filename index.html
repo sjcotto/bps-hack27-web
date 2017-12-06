@@ -35,8 +35,9 @@
 </head>
 <body ng-controller="ctrl">
 <div class="hide-me" ng-if="!hideLoader">
-  <div class="mt-5 mx-auto img-responsive hide-me-sooner" style="width: 250px">
-    <img src="img/logo-k.png" class="w-100" alt="">
+  <div class="mt-5 mx-auto img-responsive hide-me-sooner pt-5" style="width: 250px">
+    <h1 class="text-center fade-in" style="font-size: 5rem">UNITY</h1>
+    <img src="img/logo-k.png" class="w-100 fade-in" alt="">
   </div>
 </div>
 <!-- Le content... -->
@@ -95,7 +96,7 @@
         <img src="logo_hl_new.png" width="150"/>
       </div>
     </div>
-    <div class="col-sm-5 m-3">
+    <div class="col-sm-4 m-3">
       <div ng-show="view.screen1">
         <div class="row align-items-center">
           <div class="col-sm"></div>
@@ -255,8 +256,8 @@
         </table>-->
       </div>
     </div>
-    <div class="col-sm">
-      <div class="p-3 rounded mt-3" style="background: #f0f0f0;">
+    <div class="col-sm mt-3">
+      <div class="p-3 rounded" style="background: #f0f0f0;">
         <h3>Historial de transacciones</h3>
         <hr>
         <div ng-if="!blockchain.length">
@@ -266,12 +267,12 @@
         </div>
         <div ng-repeat="item in blockchain" class="blockchain-item rounded p-2 mb-2">
           <h4>{{item.title}}</h4>
-          <p>Bloque #{{item.number}}&#9;{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} <br>
+          <p>Bloque #{{item.num}}&#9;{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} <br>
             <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
             <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
             <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
           </p>
-          <div ng-if="item.ace" ng-model="item.ace" ui-ace="{
+          <div ng-if="item.ace" ng-model="item.ace" class="fade-in" ui-ace="{
                   useWrapMode : true,
                   showGutter: false,
                   theme:'twilight',
