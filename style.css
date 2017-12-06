@@ -201,19 +201,6 @@ p {
   }
 }
 
-@media (min-width: 1600px) {
-  .container {
-    width: 1500px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .container {
-    width: 1800px;
-  }
-}
-
-
 .glow-big {
   -webkit-animation-name: glowBig;
   -webkit-animation-duration: 1.8s;
@@ -234,4 +221,16 @@ p {
   from { box-shadow: 0 0 0 0 #2268b3; }
   50% { box-shadow: 0 0 40px -1px #2268b3; }
   to { box-shadow: 0 0 0 0 #2268b3; }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1500px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1800px;
+  }
 }
