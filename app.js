@@ -9,7 +9,7 @@ angular.module('x', ['ui.ace'])
       screen3: false
     };
 
-    $scope.nextView = function(screenTo) {
+    $scope.nextView = function (screenTo) {
       if (screenTo === 'screen2') {
         $scope.view.screen1 = false;
         $scope.view.screen2 = true;
@@ -43,7 +43,13 @@ angular.module('x', ['ui.ace'])
       // workHours : "10"
     };
 
-    $scope.submit = function() {
+    var dateFromObjectId = function (objectId) {
+      return new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
+    };
+
+    $scope.blockchain = [];
+
+    $scope.submit = function () {
 
       if ($scope.data.startDate)
         startDate = $scope.data.startDate;
@@ -52,71 +58,105 @@ angular.module('x', ['ui.ace'])
       if ($scope.data.workHours)
         workHours = $scope.data.workHours;
 
-      async.waterfall([
-        function(cb) {
-          // Asset
+      var obj = {
+        "$class": "bps.gub.uy.Request",
+        "id": requestId,
+        "owner": "bps.gub.uy.Person#" + ownerId
+      };
+      var blockObj = {
+        obj: obj,
+        status: 'PENDING',
+        title: 'Creando Asset',
+        date: new Date(),
+        number: '01'
+      };
+      $scope.blockchain.push(blockObj);
 
-          $scope.aceModel += "CREANDO ASSET...\n";
-          $http.post(url+'/api/Request', {
-              "$class": "bps.gub.uy.Request",
-              "id": requestId,
-              "owner": "bps.gub.uy.Person#" + ownerId
-            }, {
-              headers: {'Content-Type': 'application/json'}
-            })
+      async.waterfall([
+        function (cb) {
+          // Asset
+          // $scope.aceModel += "CREANDO ASSET...\n";
+          $http.post(url + '/api/Request', obj, {
+            headers: {'Content-Type': 'application/json'}
+          })
             .then(function (response, status, headers, config) {
-              $scope.aceModel += "RESULTADO OK\n";
-              $scope.aceModel += JSON.stringify(response.data, null, 4) + "\n\n";
+              var newObj = {
+                obj: response.data, status: 'OK',
+                ace: JSON.stringify(response.data, null, 4),
+                title: 'Asset Creado',
+                date: new Date(),
+                num: '02'
+              };
+              $scope.blockchain.unshift(newObj);
               cb(null, response.data);
             })
         },
-        function(response, cb) {
+        function (response, cb) {
           assetId = response.id;
-          $scope.aceModel += "ENVIANDO SOLICITUD...\n";
-          $http.post(url+'/api/BuildRequest', {
-              "$class": "bps.gub.uy.BuildRequest",
-              "requester": "bps.gub.uy.Person#" +  requesterId,
-              "worker": "bps.gub.uy.Person#" + workerId,
-              "asset": "bps.gub.uy.Request#" +assetId,
-              "workHours": workHours,
-              "startDate": startDate,
-              "endDate": endDate
-            }, {
-              headers: {'Content-Type': 'application/json'}
-            })
+          // $scope.aceModel += "ENVIANDO SOLICITUD...\n";
+          $http.post(url + '/api/BuildRequest', {
+            "$class": "bps.gub.uy.BuildRequest",
+            "requester": "bps.gub.uy.Person#" + requesterId,
+            "worker": "bps.gub.uy.Person#" + workerId,
+            "asset": "bps.gub.uy.Request#" + assetId,
+            "workHours": workHours,
+            "startDate": startDate,
+            "endDate": endDate
+          }, {
+            headers: {'Content-Type': 'application/json'}
+          })
             .then(function (response, status, headers, config) {
-              $scope.aceModel += "RESULTADO OK\n";
-              $scope.aceModel += JSON.stringify(response.data, null, 4) + "\n\n";
+              var newObj = {
+                obj: response.data, status: 'OK',
+                ace: JSON.stringify(response.data, null, 4),
+                title: 'Solicitud Enviada',
+                date: new Date(),
+                num: '03'
+              };
+              $scope.blockchain.unshift(newObj);
               cb(null, response.data);
             })
         },
-        function(response, cb) {
+        function (response, cb) {
           // BPS Approval
           $scope.aceModel += "SOLICITANDO APROBACION BPS...\n";
-          $http.post(url+'/api/BPSApproval', {
-              "$class": "bps.gub.uy.BPSApproval",
-              "asset": "bps.gub.uy.Request#" +assetId
-            }, {
-              headers: {'Content-Type': 'application/json'}
-            })
+          $http.post(url + '/api/BPSApproval', {
+            "$class": "bps.gub.uy.BPSApproval",
+            "asset": "bps.gub.uy.Request#" + assetId
+          }, {
+            headers: {'Content-Type': 'application/json'}
+          })
             .then(function (response, status, headers, config) {
-              $scope.aceModel += "RESULTADO OK\n";
-              $scope.aceModel += JSON.stringify(response.data, null, 4) + "\n\n";
+              var newObj = {
+                obj: response.data, status: 'OK',
+                ace: JSON.stringify(response.data, null, 4),
+                title: 'Aprobación BPS',
+                date: new Date(),
+                num: '04'
+              };
+              $scope.blockchain.unshift(newObj);
               $scope.data.bps = true;
               cb(null, response.data);
             })
         },
-        function(response, cb) {
+        function (response, cb) {
           // DGI Approval
           $scope.aceModel += "SOLICITANDO APROBACION DGI...\n";
-          $http.post(url+'/api/DGIApproval', {
-              "$class": "bps.gub.uy.DGIApproval",
-              "asset": "bps.gub.uy.Request#" +assetId
-            }, {
-              headers: {'Content-Type': 'application/json'}
-            })
+          $http.post(url + '/api/DGIApproval', {
+            "$class": "bps.gub.uy.DGIApproval",
+            "asset": "bps.gub.uy.Request#" + assetId
+          }, {
+            headers: {'Content-Type': 'application/json'}
+          })
             .then(function (response, status, headers, config) {
-              $scope.aceModel += "RESULTADO OK\n" + JSON.stringify(response.data, null, 4) + "\n\n";
+              var newObj = {
+                obj: response.data, status: 'OK',
+                ace: JSON.stringify(response.data, null, 4),
+                title: 'Aprobación DGI',
+                date: new Date(),
+                num: '05'
+              };
+              $scope.blockchain.unshift(newObj);
               $scope.data.dgi = true;
               cb(null, response.data);
             })
@@ -127,11 +167,10 @@ angular.module('x', ['ui.ace'])
           }
           return console.log(response);
         }
-        
-        );
+      );
 
     }
-    
+
 
   }]);
 

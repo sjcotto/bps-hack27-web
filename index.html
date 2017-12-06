@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8"/>
-  <title></title>
+  <title>KONA.tech - Proceso de Alta de Obra Blockchain Demo</title>
 
 
   <!-- Le css -->
@@ -37,48 +37,57 @@
 
 
 <!-- Le content... -->
-
-<div class="container-fluid">
-  <div class="row" style="padding: 14px 0">
-    <div class="col">
-      <h1>BLOCKCHAIN DEMO</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="d-flex justify-content-around">
-        <div class="d-flex justify-content-around">
-        <img src="img/bps.png" height="60" alt="">
-        </div>
-        <div class="d-flex justify-content-around">
-        <img src="img/bps.png" height="60" alt="">
-        </div>
-        <div class="d-flex justify-content-around">
-        <img src="img/dgi.png" height="60" alt="">
-        </div>
-        <div class="d-flex justify-content-around">
-        <img src="img/mtss.png" height="60" alt="">
-        </div>
+<div class="container-fluid" style="background: #253447;color: #fff;">
+  <div class="container">
+    <div class="row" style="padding: 14px 0">
+      <div class="col">
+        <h1>PROCESO DE ALTA DE OBRA
+          <small>BLOCKCHAIN DEMO</small>
+        </h1>
       </div>
-      <hr>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-around">
+          <div class="d-flex justify-content-around">
+            <img src="img/building.png" height="50" alt="">
+          </div>
+          <div class="d-flex justify-content-around">
+            <img src="img/bps.png" height="50" alt="">
+          </div>
+          <div class="d-flex justify-content-around">
+            <img src="img/dgi.png" height="50" alt="">
+          </div>
+          <div class="d-flex justify-content-around">
+            <img src="img/mtss.png" height="50" alt="">
+          </div>
+        </div>
+        <hr>
+      </div>
     </div>
   </div>
+</div>
+<div class="container">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3 mt-3">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius fuga fugit provident repellat reprehenderit. Ab
         cumque eligendi fugiat inventore itaque nesciunt perspiciatis quaerat, quasi qui sapiente. Animi itaque vitae
         voluptates.</p>
+      <br>
       <div>
-        <img src="img/logo-k.png" height="120" alt="">
+        <img src="img/logo-k.png" width="150" alt="">
       </div>
+      <br>
       <div>
-        <img src="blockchain.png"/>
+        <img src="blockchain.png" width="150" />
       </div>
-      <!--<div>
-        <img src="ibm-bluemix-logo.png"/>
-      </div>-->
+      <br>
       <div>
-        <img src="logo_hl_new.png"/>
+        <img src="img/logo_bluemix_light.png" width="150" />
+      </div>
+      <br>
+      <div>
+        <img src="logo_hl_new.png" width="150" />
       </div>
     </div>
     <div class="col-sm-5 m-3">
@@ -212,7 +221,7 @@
         </form>
 
         <br>
-        <div class="form-group">
+        <!--<div class="form-group">
           <label>Resultado:</label>
         </div>
 
@@ -238,25 +247,29 @@
             </td>
           </tr>
           </tbody>
-        </table>
-
+        </table>-->
       </div>
     </div>
 
     <div class="col-sm">
-      <h3>Historial de transacciones</h3>
-      <hr>
-      <div style="background: #f0f0f0;border-radius: 7px" class="p-3">
-        <h4>Envío de solicitud a BPS</h4>
-        <p>Bloque #01&#9;02-12-2017&nbsp;11:40 AM <br>
-          <span class="badge badge-pill badge-success">Aprobado</span></p>
+      <div class="p-3 rounded mt-3" style="background: #f0f0f0;" >
+        <h3>Historial de transacciones</h3>
+        <hr>
+        <div ng-repeat="item in blockchain" class="blockchain-item rounded p-2 mb-2">
+          <h4>{{item.title}}</h4>
+          <p>Bloque #{{item.number}}&#9;{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} <br>
+            <span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
+            <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
+            <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>
+          </p>
+          <div ng-if="item.ace" ng-model="item.ace" ui-ace="{
+                  useWrapMode : true,
+                  showGutter: false,
+                  theme:'twilight',
+                  mode: 'javascript',
+                }"></div>
+        </div>
       </div>
-      <!--<div ng-model="aceModel" ui-ace="{
-              useWrapMode : true,
-              showGutter: false,
-              theme:'twilight',
-              mode: 'javascript',
-            }"></div>-->
     </div>
   </div>
 

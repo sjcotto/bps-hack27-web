@@ -7,7 +7,7 @@ p {
   font-size: 1.1rem;
 }
 .ace_editor {
-  height: 90vh;
+  height: 130px;
 }
 
 .btn-menu {
@@ -35,4 +35,58 @@ p {
 .btn-menu-light {
   background: #94A8C2 !important;
   color: #333 !important;
+}
+
+.blockchain-item {
+  box-shadow: 0 1px 1px 0 rgba(10,16,34,.2);
+  background: #fff;
+  transition: all 0.5s ease;
+  -webkit-animation-name: example, scale; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s, 0.2s; /* Safari 4.0 - 8.0 */
+  animation-name: example, scale;
+  animation-duration: 2s, 0.2s;
+}
+
+.blockchain-item:hover {
+  box-shadow: 0 10px 30px -5px rgba(10,16,34,.5);
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  from {box-shadow: 0 10px 30px -5px rgba(10,16,34,.5);}
+  to {box-shadow: 0 1px 1px 0 rgba(10,16,34,.2);}
+}
+
+/* Standard syntax */
+@keyframes example {
+  from {
+    box-shadow: 0 10px 30px -5px rgba(10,16,34,.5);}
+  to {box-shadow: 0 1px 1px 0 rgba(10,16,34,.2);}
+}
+
+@-webkit-keyframes scale {
+  from {
+    transform: scale(0.2);
+    -webkit-transform: scale(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    opacity: 1;
+  }
+}
+
+/* Standard syntax */
+@keyframes scale {
+  from {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    opacity: 1;
+  }
 }
