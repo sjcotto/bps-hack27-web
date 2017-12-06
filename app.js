@@ -1,13 +1,17 @@
 'use strict';
 
 angular.module('x', ['ui.ace'])
-  .controller('ctrl', ['$scope', '$http', function ($scope, $http) {
+  .controller('ctrl', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
 
     $scope.view = {
       screen1: true,
       screen2: false,
       screen3: false
     };
+
+    $timeout(function () {
+      $scope.hideLoader = true;
+    }, 1500);
 
     $scope.nextView = function (screenTo) {
       if (screenTo === 'screen2') {

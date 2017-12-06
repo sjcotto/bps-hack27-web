@@ -80,8 +80,8 @@ p {
 /* Standard syntax */
 @keyframes scale {
   from {
-    transform: scale(0.5);
-    -webkit-transform: scale(0.5);
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
     opacity: 0;
   }
   to {
@@ -96,8 +96,8 @@ p {
   -webkit-animation-duration: 1.8s;
   animation-name: glow;
   animation-duration: 1.8s;
-  -webkit-animation-iteration-count: 3;
-  animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 5;
+  animation-iteration-count: 5;
 }
 
 @-webkit-keyframes glow {
@@ -120,4 +120,56 @@ p {
 
 .full {
   opacity: 1;
+}
+
+.hide-me {
+  -webkit-animation-name: hide;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: hide;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #fff;
+  position: absolute;
+  z-index: 999;
+  opacity: 1;
+}
+
+.hide-me-sooner {
+  -webkit-animation-name: hide;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: hide;
+  animation-duration: 0.5s;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes hide {
+  from {
+    opacity: 1;
+    display: block
+  }
+  to {
+    opacity: 0;
+    display: none
+  }
+}
+
+/* Standard syntax */
+@keyframes hide {
+  from {
+    opacity: 1;
+    display: block
+  }
+  to {
+    opacity: 0;
+    display: none
+  }
 }

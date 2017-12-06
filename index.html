@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8"/>
-  <title>KONA.tech - Proceso de Alta de Obra Blockchain Demo</title>
+  <title>KONA.tech - UNITY - Proceso de Alta de Obra Blockchain Demo</title>
 
 
   <!-- Le css -->
@@ -34,19 +34,24 @@
 
 </head>
 <body ng-controller="ctrl">
-
-
+<div class="hide-me" ng-if="!hideLoader">
+  <div class="mt-5 mx-auto img-responsive hide-me-sooner" style="width: 250px">
+    <img src="img/logo-k.png" class="w-100" alt="">
+  </div>
+</div>
 <!-- Le content... -->
 <div class="container-fluid" style="background: #253447;color: #fff;">
   <div class="container">
     <div class="row" style="padding: 14px 0">
       <div class="col">
-        <h1>PROCESO DE ALTA DE OBRA
-          <small>BLOCKCHAIN DEMO</small>
-        </h1>
+        <h1>UNITY</h1>
+      </div>
+      <div class="col text-right" style="color: #c4ced7;">
+        <h5>PROCESO DE ALTA DE OBRA</h5>
+        <h6>BLOCKCHAIN DEMO</h6>
       </div>
     </div>
-    <div class="row">
+    <div class="row pb-4 pt-3">
       <div class="col">
         <div class="d-flex justify-content-around">
           <div class="d-flex justify-content-around">
@@ -62,7 +67,7 @@
             <img src="img/mtss.png" class="faded" ng-class="{full : data.mtss}" height="50" alt="">
           </div>
         </div>
-        <hr>
+        <!--<hr>-->
       </div>
     </div>
   </div>
@@ -70,24 +75,24 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3 mt-3">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius fuga fugit provident repellat reprehenderit. Ab
-        cumque eligendi fugiat inventore itaque nesciunt perspiciatis quaerat, quasi qui sapiente. Animi itaque vitae
-        voluptates.</p>
+      <p>UNITY es una solución basada en blockchain (Hyperledger) que pretende
+        generar un perfil único para los ciudadanos y las empresas, consensuando la
+        información de varios organismos del estado que participen en la red.</p>
       <br>
       <div>
         <img src="img/logo-k.png" width="150" alt="">
       </div>
       <br>
       <div>
-        <img src="blockchain.png" width="150" />
+        <img src="blockchain.png" width="150"/>
       </div>
       <br>
       <div>
-        <img src="img/logo_bluemix_light.png" width="150" />
+        <img src="img/logo_bluemix_light.png" width="150"/>
       </div>
       <br>
       <div>
-        <img src="logo_hl_new.png" width="150" />
+        <img src="logo_hl_new.png" width="150"/>
       </div>
     </div>
     <div class="col-sm-5 m-3">
@@ -250,22 +255,21 @@
         </table>-->
       </div>
     </div>
-
     <div class="col-sm">
-      <div class="p-3 rounded mt-3" style="background: #f0f0f0;" >
+      <div class="p-3 rounded mt-3" style="background: #f0f0f0;">
         <h3>Historial de transacciones</h3>
         <hr>
         <div ng-if="!blockchain.length">
           <p>
-          <i class="fa fa-2x fa-info-circle" style="opacity: 0.5"></i><br> Las transacciones realizadas se verán aquí
+            <i class="fa fa-2x fa-info-circle" style="opacity: 0.5"></i><br> Las transacciones realizadas se verán aquí
           </p>
         </div>
         <div ng-repeat="item in blockchain" class="blockchain-item rounded p-2 mb-2">
           <h4>{{item.title}}</h4>
           <p>Bloque #{{item.number}}&#9;{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} <br>
-            <span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
+            <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
             <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
-            <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>
+            <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
           </p>
           <div ng-if="item.ace" ng-model="item.ace" ui-ace="{
                   useWrapMode : true,
