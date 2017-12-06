@@ -6,7 +6,8 @@ angular.module('x', ['ui.ace'])
     $scope.view = {
       screen1: true,
       screen2: false,
-      screen3: false
+      screen3: false,
+      screen4: false
     };
 
     $timeout(function () {
@@ -14,13 +15,32 @@ angular.module('x', ['ui.ace'])
     }, 2500);
 
     $scope.nextView = function (screenTo) {
+      if (screenTo === 'screen1') {
+        $scope.blockchain = [];
+        $scope.data = {};
+        requestId = new Date().getTime() + "";
+        $scope.view.screen1 = true;
+        $scope.view.screen2 = false;
+        $scope.view.screen3 = false;
+        $scope.view.screen4 = false;
+      }
       if (screenTo === 'screen2') {
         $scope.view.screen1 = false;
         $scope.view.screen2 = true;
+        $scope.view.screen3 = false;
+        $scope.view.screen4 = false;
       }
-      else {
+      if (screenTo === 'screen3') {
+        $scope.view.screen1 = false;
         $scope.view.screen2 = false;
         $scope.view.screen3 = true;
+        $scope.view.screen4 = false;
+      }
+      if (screenTo === 'screen4') {
+        $scope.view.screen1 = false;
+        $scope.view.screen2 = false;
+        $scope.view.screen3 = false;
+        $scope.view.screen4 = true;
       }
     };
 
@@ -42,13 +62,6 @@ angular.module('x', ['ui.ace'])
     var endDate = "2017-11-04T23:32:31.129Z";
 
     $scope.data = {
-      // startDate : new Date(),
-      // endDate : new Date(),
-      // workHours : "10"
-    };
-
-    var dateFromObjectId = function (objectId) {
-      return new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
     };
 
     $scope.blockchain = [];
@@ -185,6 +198,15 @@ angular.module('x', ['ui.ace'])
               };
               $scope.blockchain.push(newObj);
               $scope.data.mtss = true;
+              $timeout(function () {
+                var newObj = {
+                  title: 'Trámite Aprobado',
+                  date: new Date(),
+                  num: '07'
+                };
+                $scope.blockchain.push(newObj);
+                $scope.nextView('screen4');
+              }, 500);
               cb(null, response.data);
               $scope.hideForm = true;
             })

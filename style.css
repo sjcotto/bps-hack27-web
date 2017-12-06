@@ -11,7 +11,7 @@ p {
 }
 
 .btn-menu {
-  cursor: pointer;
+  /*cursor: pointer;*/
   border-radius: 50px;
   height: 260px;
   background: #253447;
@@ -211,4 +211,27 @@ p {
   .container {
     width: 1800px;
   }
+}
+
+
+.glow-big {
+  -webkit-animation-name: glowBig;
+  -webkit-animation-duration: 1.8s;
+  animation-name: glowBig;
+  animation-duration: 1.8s;
+  -webkit-animation-iteration-count: 5;
+  animation-iteration-count: 5;
+}
+
+@-webkit-keyframes glowBig {
+  from { box-shadow: 0 0 0 0 #2268b3; }
+  50% { box-shadow: 0 0 40px -1px #2268b3; }
+  to { box-shadow: 0 0 0 0 #2268b3; }
+}
+
+/* Standard syntax */
+@keyframes glowBig {
+  from { box-shadow: 0 0 0 0 #2268b3; }
+  50% { box-shadow: 0 0 40px -1px #2268b3; }
+  to { box-shadow: 0 0 0 0 #2268b3; }
 }

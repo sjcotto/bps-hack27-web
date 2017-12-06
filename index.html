@@ -45,7 +45,11 @@
   <div class="container">
     <div class="row" style="padding: 14px 0">
       <div class="col">
-        <h1>UNITY</h1>
+        <h1 style="font-size: 3rem">
+          UNITY
+          &nbsp;
+        <img src="img/blockchain-white-01.png" height="60" alt="">
+        </h1>
       </div>
       <div class="col text-right" style="color: #c4ced7;">
         <h5>PROCESO DE ALTA DE OBRA</h5>
@@ -81,9 +85,9 @@
         <img src="img/logo-k.png" width="150" alt="">
       </div>
       <br>
-      <div>
+      <!--<div>
         <img src="blockchain.png" width="150"/>
-      </div>
+      </div>-->
       <br>
       <div>
         <img src="img/logo_bluemix_light.png" width="150"/>
@@ -119,7 +123,7 @@
           <div class="col-sm"></div>
           <div class="col-sm-10">
             <div>
-              <div ng-click="nextView('screen2')" class="row p-2 btn-menu glow">
+              <div ng-click="nextView('screen2')" style="cursor: pointer;" class="row p-2 btn-menu glow-big">
                 <div class="col-sm align-self-center">
                   <i class="fa fa-5x fa-envelope-open"></i>
                   <br>
@@ -156,7 +160,7 @@
               <div class="row btn-menu btn-menu-sm btn-menu-light">
                 <div class="col-sm align-self-center">
                       <span>
-                        Pensión Por fallecimiento
+                        Subsidio por enfermedad
                       </span>
                 </div>
               </div>
@@ -164,7 +168,7 @@
           </div>
           <div class="col-sm-6">
             <div class="col-sm">
-              <div ng-click="nextView('screen3')" class="row btn-menu btn-menu-sm btn-menu-light glow">
+              <div ng-click="nextView('screen3')" style="cursor: pointer;" class="row btn-menu btn-menu-sm btn-menu-light glow">
                 <div class="col-sm align-self-center">
                       <span>
                         Solicitud de obra
@@ -180,7 +184,7 @@
               <div class="row btn-menu btn-menu-sm btn-menu-light">
                 <div class="col-sm align-self-center">
                       <span>
-                        Pensión Por fallecimiento
+                        Asignación familiar
                       </span>
                 </div>
               </div>
@@ -253,19 +257,25 @@
           </tbody>
         </table>-->
       </div>
+      <div ng-show="view.screen4" class="pt-5">
+        <h2 class="text-center">Trámite finalizado</h2>
+        <div class="text-center pt-4">
+          <button type="submit" ng-click="nextView('screen1')" class="btn btn-primary">Reiniciar</button>
+        </div>
+      </div>
     </div>
     <div class="col-sm mt-3">
       <div class="p-3 rounded" style="background: #f0f0f0;">
         <h3>Historial de transacciones</h3>
         <hr>
         <div ng-if="!blockchain.length">
-          <p>
+          <p class="lead">
             <i class="fa fa-2x fa-info-circle" style="opacity: 0.5"></i><br> Las transacciones realizadas se verán aquí
           </p>
         </div>
         <div ng-repeat="item in blockchain" class="blockchain-item rounded p-2 mb-2">
           <h4>{{item.title}}</h4>
-          <p>Bloque #{{item.num}}&#9;{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} <br>
+          <p style="color: #666">Bloque #{{item.num}}<br><span style="color: #888;">{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} </span><br>
             <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
             <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
             <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
