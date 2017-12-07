@@ -74,7 +74,7 @@ angular.module('x', ['ui.ace'])
       if ($scope.data.workHours)
         workHours = $scope.data.workHours;
 
-      if ($scope.data.workHours <= 0)
+      // if ($scope.data.workHours <= 0)
 
       var obj = {
         "$class": "bps.gub.uy.Request",
