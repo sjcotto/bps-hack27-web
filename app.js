@@ -66,7 +66,7 @@ angular.module('x', ['ui.ace'])
     $scope.blockchain = [];
 
     $scope.submit = function () {
-
+      $scope.hideForm = true;
       if ($scope.data.startDate)
         startDate = $scope.data.startDate;
       if ($scope.data.endDate)
@@ -209,7 +209,6 @@ angular.module('x', ['ui.ace'])
                 $scope.nextView('screen4');
               }, 500);
               cb(null, response.data);
-              $scope.hideForm = true;
             })
         }],
         function (err, response) {

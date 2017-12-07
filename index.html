@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="style.css"/>
 
   <script src="https://code.jquery.com/jquery-3.2.1.js" crossorigin="anonymous"></script>
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
           integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
           crossorigin="anonymous"></script>
@@ -57,46 +57,28 @@
       </div>
     </div>
     <div class="pb-4 pt-3 d-md-block d-none">
-      <!--<div class="row">
-        <div class="col">
-          <div class="d-flex justify-content-around">
-            <div class="d-flex justify-content-around">
-              <img src="img/building.png" class="faded" ng-class="{full : data.home}" height="50" alt="">
-            </div>
-            <div class="d-flex justify-content-around">
-              <img src="img/bps.png" class="faded" ng-class="{full : data.bps}" height="50" alt="">
-            </div>
-            <div class="d-flex justify-content-around">
-              <img src="img/dgi.png" class="faded" ng-class="{full : data.dgi}" height="50" alt="">
-            </div>
-            <div class="d-flex justify-content-around">
-              <img src="img/mtss.png" class="faded" ng-class="{full : data.mtss}" height="50" alt="">
-            </div>
-          </div>
-        </div>
-      </div>-->
       <div class="row justify-content-center">
         <div class="col-1"></div>
         <div class="col-3"><span class="img-rail">
-            <img src="img/building.png" class="faded" ng-class="{full : data.home}" width="150" alt="">
+            <img src="img/building.png" class="faded" ng-class="{full : data.home}" width="120" alt="">
           </span>
           <br>
           <span ng-class="{'green-bg' : data.home}" class="indicator"></span>
         </div>
         <div class="col-3"><span class="img-rail">
-          <img src="img/bps.png" class="faded" ng-class="{full : data.bps}" width="150" alt="">
+          <img src="img/bps.png" class="faded" ng-class="{full : data.bps}" width="120" alt="">
         </span>
           <br>
           <span ng-class="{'green-bg' : data.bps}" class="indicator"></span>
         </div>
         <div class="col-3"><span class="img-rail">
-          <img src="img/dgi.png" class="faded" ng-class="{full : data.dgi}" width="150" alt="">
+          <img src="img/dgi.png" class="faded" ng-class="{full : data.dgi}" width="120" alt="">
         </span>
           <br>
           <span ng-class="{'green-bg' : data.dgi}" class="indicator"></span>
         </div>
         <div class="col-1"><span class="img-rail">
-          <img src="img/mtss.png" class="faded" ng-class="{full : data.mtss}" width="150" alt="">
+          <img src="img/mtss.png" class="faded" ng-class="{full : data.mtss}" width="120" alt="">
         </span>
           <br>
           <span ng-class="{'green-bg' : data.mtss}" class="indicator"></span>
@@ -130,206 +112,210 @@
         <!--</div>-->
       </div>
       <div class="row">
-        <div class="col-sm">
-          <p>UNITY es una solución basada en blockchain (Hyperledger) que pretende agilizar los trámites electrónicos
+        <div class="col-sm mt-2">
+          <p class="lead">UNITY es una solución basada en blockchain (Hyperledger) que pretende agilizar los trámites
+            electrónicos
             para los ciudadanos y las empresas, consensuando la información de varios organismos del estado que
             participen en la red.</p>
         </div>
       </div>
     </div>
-    <div class="col-md-4 m-3">
-      <div ng-show="view.screen1">
-        <div class="row align-items-center">
-          <div class="col-sm"></div>
-          <div class="col-sm-10">
-            <div>
-              <div class="row btn-menu">
+    <div class="col-md m-3">
+      <div ng-if="!hideForm">
+        <div ng-show="view.screen1">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-sm-8">
+              <div class="faded-7 row btn-menu">
                 <div class="col-sm align-self-center">
-                  <i class="fa fa-5x fa-user"></i>
+                  <i class="fa fa-3x fa-user"></i>
                   <br>
-                  <br>
-                  <span>
+                  <span class="mt-3 d-inline-block">
                         Mi perfil
                       </span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-sm"></div>
-        </div>
-        <br>
-        <div class="row align-items-center">
-          <div class="col-sm"></div>
-          <div class="col-sm-10">
-            <div>
+          <br>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-sm-8">
               <div ng-click="nextView('screen2')" style="cursor: pointer;" class="row p-2 btn-menu glow-big">
                 <div class="col-sm align-self-center">
-                  <i class="fa fa-5x fa-envelope-open"></i>
+                  <i class="fa fa-3x fa-envelope-open"></i>
                   <br>
-                  <br>
-                  <span>
+                  <span class="mt-3 d-inline-block">
                         Trámites
                       </span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-sm"></div>
         </div>
-      </div>
-      <div ng-show="view.screen2">
-        <div class="row align-items-center">
-          <div class="col-sm">
-            <div class="col-sm">
-              <div class="row btn-menu btn-menu-sm">
-                <div class="col-sm align-self-center">
-                  <i class="fa fa-3x fa-envelope-open"></i>
-                  <br>
-                  <br>
-                  <span class="align-self-center">
-                        Solicitar beneficio
-                      </span>
+        <div ng-show="view.screen2">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-sm-8 mb-3">
+              <div class="faded-7 btn-menu btn-menu-sm">
+                <div class="row h-100 align-items-center">
+                  <div class="col-sm">
+                    <i class="fa fa-2x fa-envelope-open"></i>
+                    <br>
+                    <span class="mt-3 d-inline-block">
+                      Solicitar beneficio
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <br>
-        <div class="row align-items-center">
-          <div class="col-lg-6 mb-3">
-            <div class="col-sm">
-              <div class="row btn-menu btn-menu-sm btn-menu-light">
-                <div class="col-sm align-self-center">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-4 mb-3">
+              <div class="faded-7 btn-menu btn-menu-sm btn-menu-light">
+                <div class="row h-100 align-items-center">
+                  <div class="col-sm">
                       <span>
                         Subsidio por enfermedad
                       </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-6 mb-3">
-            <div class="col-sm">
-              <div ng-click="nextView('screen3')" style="cursor: pointer;"
-                   class="row btn-menu btn-menu-sm btn-menu-light glow">
-                <div class="col-sm align-self-center">
+            <div class="col-lg-4 mb-3">
+              <div class="col-sm">
+                <div ng-click="nextView('screen3')" style="cursor: pointer;"
+                     class="row btn-menu btn-menu-sm btn-menu-light glow">
+                  <div class="col-sm align-self-center">
                       <span>
                         Solicitud de obra
                       </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="w-100"></div>
-          <div class="col-lg-6 mb-3">
-            <div class="col-sm">
-              <div class="row btn-menu btn-menu-sm btn-menu-light">
-                <div class="col-sm align-self-center">
+            <div class="w-100"></div>
+            <div class="col-lg-4 mb-3">
+              <div class="col-sm">
+                <div class="row faded-7 btn-menu btn-menu-sm btn-menu-light">
+                  <div class="col-sm align-self-center">
                       <span>
                         Asignación familiar
                       </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-6 mb-3">
-            <div class="col-sm">
-              <div class="row btn-menu btn-menu-sm btn-menu-light">
-                <div class="col-sm align-self-center">
+            <div class="col-lg-4 mb-3">
+              <div class="col-sm">
+                <div class="row faded-7 btn-menu btn-menu-sm btn-menu-light">
+                  <div class="col-sm align-self-center">
                       <span>
                         Pensión Por fallecimiento
                       </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div ng-show="view.screen3">
-        <form>
-          <div class="form-group">
-            <label>Solicitante</label>
-            <input ng-disabled="true" value="Juan P&eacute;rez" type="text" class="form-control"
-                   aria-describedby="emailHelp">
+        <div ng-show="view.screen3">
+          <form>
+            <div class="row justify-content-center">
+              <div class="col-sm-8">
+
+
+                <div class="form-group">
+                  <label>Solicitante</label>
+                  <input ng-disabled="true" value="Juan P&eacute;rez" type="text" class="form-control"
+                         aria-describedby="emailHelp">
+                </div>
+
+                <div class="form-group">
+                  <label>Jornales a trabajar</label>
+                  <input type="text" ng-model="data.workHours" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label>Inicio obra</label>
+                  <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.startDate">
+                </div>
+                <div class="form-group">
+                  <label>Fin obra</label>
+                  <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.endDate">
+                </div>
+
+                <button type="submit" ng-click="submit()" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </form>
+
+          <br>
+          <!--<div class="form-group">
+            <label>Resultado:</label>
           </div>
 
-          <div class="form-group">
-            <label>Jornales a trabajar</label>
-            <input type="text" ng-model="data.workHours" class="form-control">
-          </div>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Organización</th>
+              <th>Aprobación</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>BPS</td>
+              <td>
+                <div ng-show="data.bps"><img src="check.png"></div>
+              </td>
 
-          <div class="form-group">
-            <label>Inicio obra</label>
-            <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.startDate">
-          </div>
-          <div class="form-group">
-            <label>Fin obra</label>
-            <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.endDate">
-          </div>
-
-          <button type="submit" ng-click="submit()" class="btn btn-primary">Enviar</button>
-        </form>
-
-        <br>
-        <!--<div class="form-group">
-          <label>Resultado:</label>
+            </tr>
+            <tr>
+              <td>DGI</td>
+              <td>
+                <div ng-show="data.dgi"><img src="check.png"></div>
+              </td>
+            </tr>
+            </tbody>
+          </table>-->
         </div>
-
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th>Organización</th>
-            <th>Aprobación</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>BPS</td>
-            <td>
-              <div ng-show="data.bps"><img src="check.png"></div>
-            </td>
-
-          </tr>
-          <tr>
-            <td>DGI</td>
-            <td>
-              <div ng-show="data.dgi"><img src="check.png"></div>
-            </td>
-          </tr>
-          </tbody>
-        </table>-->
-      </div>
-      <div ng-show="view.screen4" class="pt-5">
-        <h2 class="text-center">Trámite finalizado</h2>
-        <div class="text-center pt-4">
-          <button type="submit" ng-click="nextView('screen1')" class="btn btn-primary">Reiniciar</button>
+        <div ng-show="view.screen4" class="pt-5">
+          <h2 class="text-center">Trámite finalizado</h2>
+          <div class="text-center pt-4">
+            <button type="submit" ng-click="nextView('screen1')" class="btn btn-primary">Reiniciar</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md mt-3">
-      <div class="p-3 rounded" style="background: #f0f0f0;">
-        <h3>Historial de transacciones</h3>
+      <div ng-if="hideForm" class="p-3 rounded" style="background: #f0f0f0;">
+        <h4>Historial de transacciones</h4>
         <hr>
         <div ng-if="!blockchain.length">
           <p class="lead">
             <i class="fa fa-2x fa-info-circle" style="opacity: 0.5"></i><br> Las transacciones realizadas se verán aquí
           </p>
         </div>
-        <div ng-repeat="item in blockchain" class="blockchain-item rounded p-2 mb-2">
-          <h4>{{item.title}}</h4>
-          <p style="color: #666">Bloque #{{item.num}}<br><span style="color: #888;">{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} </span><br>
-            <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
-            <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
-            <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
-          </p>
-          <div ng-if="item.ace" ng-model="item.ace" class="fade-in" ui-ace="{
+        <div class="row">
+          <div ng-repeat="item in blockchain" class="col-md-4">
+            <div class="blockchain-item rounded  p-2 mb-2">
+              <h5>{{item.title}}</h5>
+              <p style="color: #666">Bloque #0{{$index + 1}}<br><span style="color: #888;">{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} </span><br>
+                <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
+                <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
+                <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
+              </p>
+              <div style="height: 110px">
+                <div ng-show="item.ace" ng-model="item.ace" class="fade-in" ui-ace="{
                   useWrapMode : true,
                   showGutter: false,
                   theme:'twilight',
                   mode: 'javascript',
                 }"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <!--<div class="col-md mt-3">
+
+    </div>-->
   </div>
 
 </div>
