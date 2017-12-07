@@ -234,3 +234,9 @@ p {
     max-width: 1800px;
   }
 }
+
+@media (max-width: 575px) {
+  .text-center-xs {
+    text-align: center;
+  }
+}

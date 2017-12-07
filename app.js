@@ -61,8 +61,7 @@ angular.module('x', ['ui.ace'])
     var startDate = "2017-11-04T23:32:31.129Z";
     var endDate = "2017-11-04T23:32:31.129Z";
 
-    $scope.data = {
-    };
+    $scope.data = {};
 
     $scope.blockchain = [];
 
@@ -74,6 +73,8 @@ angular.module('x', ['ui.ace'])
         startDate = $scope.data.endDate;
       if ($scope.data.workHours)
         workHours = $scope.data.workHours;
+
+      if ($scope.data.workHours <= 0)
 
       var obj = {
         "$class": "bps.gub.uy.Request",
