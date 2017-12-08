@@ -41,7 +41,7 @@
   </div>
 </div>
 <!-- Le content... -->
-<div class="container-fluid" style="background: #253447;color: #fff;">
+<div class="container-fluid header">
   <div class="container">
     <div class="row" style="padding: 14px 0">
       <div class="col-md">
@@ -94,9 +94,40 @@
     </div>
   </div>
 </div>
+<div class="container-fluid sub-header pt-4">
+  <div class="container">
+    <!--<h4>Historial de transacciones</h4>
+    <hr>
+    <div ng-if="!blockchain.length">
+      <p class="lead">
+        <i class="fa fa-2x fa-info-circle" style="opacity: 0.5"></i><br> Las transacciones realizadas se verán aquí
+      </p>
+    </div>-->
+    <div class="row">
+      <div ng-repeat="item in blockchain" class="col">
+        <div ng-class="{'blockchain-item': item.title, 'blockchain-placeholder': !item.title }" class="rounded  p-2 mb-2">
+          <h5>{{item.title}}</h5>
+          <p style="color: #666">Bloque #0{{$index + 1}}<br><span style="color: #888;">{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} </span><br>
+            <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
+            <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
+            <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
+          </p>
+          <div style="height: 110px">
+            <div ng-show="item.ace" ng-model="item.ace" class="fade-in" ui-ace="{
+                  useWrapMode : true,
+                  showGutter: false,
+                  theme:'twilight',
+                  mode: 'javascript',
+                }"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
-    <div class="col-md-3 mt-3">
+    <div class="col-md-6 mt-3">
       <div class="row">
         <div class="col-sm-6 col-md text-center-xs">
           <img src="img/logo-k.png" width="150" alt="">
@@ -283,34 +314,8 @@
           </div>
         </div>
       </div>
-      <div ng-if="hideForm" class="p-3 rounded" style="background: #f0f0f0;">
-        <h4>Historial de transacciones</h4>
-        <hr>
-        <div ng-if="!blockchain.length">
-          <p class="lead">
-            <i class="fa fa-2x fa-info-circle" style="opacity: 0.5"></i><br> Las transacciones realizadas se verán aquí
-          </p>
-        </div>
-        <div class="row">
-          <div ng-repeat="item in blockchain" class="col-md-4">
-            <div class="blockchain-item rounded  p-2 mb-2">
-              <h5>{{item.title}}</h5>
-              <p style="color: #666">Bloque #0{{$index + 1}}<br><span style="color: #888;">{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} </span><br>
-                <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
-                <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
-                <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
-              </p>
-              <div style="height: 110px">
-                <div ng-show="item.ace" ng-model="item.ace" class="fade-in" ui-ace="{
-                  useWrapMode : true,
-                  showGutter: false,
-                  theme:'twilight',
-                  mode: 'javascript',
-                }"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div ng-if="hideForm" class="p-3 rounded">
+
       </div>
     </div>
     <!--<div class="col-md mt-3">

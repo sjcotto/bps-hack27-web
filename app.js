@@ -64,6 +64,9 @@ angular.module('x', ['ui.ace'])
     $scope.data = {};
 
     $scope.blockchain = [];
+    for (var i = 0; i < 5; i++) {
+      $scope.blockchain.push({})
+    }
 
     $scope.submit = function () {
       $scope.hideForm = true;
@@ -88,7 +91,8 @@ angular.module('x', ['ui.ace'])
         date: new Date(),
         num: '01'
       };
-      $scope.blockchain.push(blockObj);
+      // $scope.blockchain.push(blockObj);
+      // TODO creating asset
 
       async.waterfall([
         function (cb) {
@@ -105,7 +109,7 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '02'
               };
-              $scope.blockchain.push(newObj);
+              $scope.blockchain[0] = newObj;
               cb(null, response.data);
             })
         },
@@ -131,7 +135,7 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '03'
               };
-              $scope.blockchain.push(newObj);
+              $scope.blockchain[1] = newObj;
               $scope.data.home = true;
               cb(null, response.data);
             })
@@ -153,7 +157,7 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '04'
               };
-              $scope.blockchain.push(newObj);
+              $scope.blockchain[2] = newObj;
               $scope.data.bps = true;
               cb(null, response.data);
             })
@@ -175,7 +179,7 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '05'
               };
-              $scope.blockchain.push(newObj);
+              $scope.blockchain[3] = newObj;
               $scope.data.dgi = true;
               cb(null, response.data);
             })
@@ -197,15 +201,16 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '06'
               };
-              $scope.blockchain.push(newObj);
+              $scope.blockchain[4] = newObj;
               $scope.data.mtss = true;
               $timeout(function () {
-                var newObj = {
-                  title: 'Trámite Aprobado',
-                  date: new Date(),
-                  num: '07'
-                };
-                $scope.blockchain.push(newObj);
+                // var newObj = {
+                //   title: 'Trámite Aprobado',
+                //   date: new Date(),
+                //   num: '07'
+                // };
+                // $scope.blockchain.push(newObj);
+                // TODO trámite aprobado
                 $scope.nextView('screen4');
               }, 500);
               cb(null, response.data);

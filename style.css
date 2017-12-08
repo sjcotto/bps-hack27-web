@@ -4,7 +4,7 @@ html, body, button, input, optgroup, select, textarea {
 }
 
 /*p {*/
-  /*font-size: 1.1rem;*/
+/*font-size: 1.1rem;*/
 /*}*/
 .ace_editor {
   height: 110px;
@@ -19,7 +19,8 @@ html, body, button, input, optgroup, select, textarea {
   text-transform: uppercase;
   text-align: center;
 }
-.btn-menu span{
+
+.btn-menu span {
   font-size: 1.35rem;
   margin-bottom: .5rem;
   font-family: inherit;
@@ -38,7 +39,7 @@ html, body, button, input, optgroup, select, textarea {
 }
 
 .blockchain-item {
-  box-shadow: 0 1px 1px 0 rgba(10,16,34,.2);
+  box-shadow: 0 1px 1px 0 rgba(10, 16, 34, .2);
   background: #fff;
   transition: all 0.5s ease;
   -webkit-animation-name: example, scale; /* Safari 4.0 - 8.0 */
@@ -48,20 +49,31 @@ html, body, button, input, optgroup, select, textarea {
 }
 
 .blockchain-item:hover {
-  box-shadow: 0 10px 30px -5px rgba(10,16,34,.5);
+  box-shadow: 0 10px 30px -5px rgba(10, 16, 34, .5);
+}
+
+.blockchain-placeholder {
+  border: dashed 1px #ccd6e4;
 }
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example {
-  from {box-shadow: 0 10px 30px -5px rgba(10,16,34,.5);}
-  to {box-shadow: 0 1px 1px 0 rgba(10,16,34,.2);}
+  from {
+    box-shadow: 0 10px 30px -5px rgba(10, 16, 34, .5);
+  }
+  to {
+    box-shadow: 0 1px 1px 0 rgba(10, 16, 34, .2);
+  }
 }
 
 /* Standard syntax */
 @keyframes example {
   from {
-    box-shadow: 0 10px 30px -5px rgba(10,16,34,.5);}
-  to {box-shadow: 0 1px 1px 0 rgba(10,16,34,.2);}
+    box-shadow: 0 10px 30px -5px rgba(10, 16, 34, .5);
+  }
+  to {
+    box-shadow: 0 1px 1px 0 rgba(10, 16, 34, .2);
+  }
 }
 
 @-webkit-keyframes scale {
@@ -101,16 +113,28 @@ html, body, button, input, optgroup, select, textarea {
 }
 
 @-webkit-keyframes glow {
-  from { box-shadow: 0 0 0 0 #2268b3; }
-  50% { box-shadow: 0 0 25px -1px #2268b3; }
-  to { box-shadow: 0 0 0 0 #2268b3; }
+  from {
+    box-shadow: 0 0 0 0 #2268b3;
+  }
+  50% {
+    box-shadow: 0 0 25px -1px #2268b3;
+  }
+  to {
+    box-shadow: 0 0 0 0 #2268b3;
+  }
 }
 
 /* Standard syntax */
 @keyframes glow {
-  from { box-shadow: 0 0 0 0 #2268b3; }
-  50% { box-shadow: 0 0 25px -1px #2268b3; }
-  to { box-shadow: 0 0 0 0 #2268b3; }
+  from {
+    box-shadow: 0 0 0 0 #2268b3;
+  }
+  50% {
+    box-shadow: 0 0 25px -1px #2268b3;
+  }
+  to {
+    box-shadow: 0 0 0 0 #2268b3;
+  }
 }
 
 .faded {
@@ -151,6 +175,7 @@ html, body, button, input, optgroup, select, textarea {
   animation-delay: 1.2s;
   animation-fill-mode: forwards;
 }
+
 @-webkit-keyframes hide {
   from {
     opacity: 1;
@@ -211,16 +236,28 @@ html, body, button, input, optgroup, select, textarea {
 }
 
 @-webkit-keyframes glowBig {
-  from { box-shadow: 0 0 0 0 #2268b3; }
-  50% { box-shadow: 0 0 40px -1px #2268b3; }
-  to { box-shadow: 0 0 0 0 #2268b3; }
+  from {
+    box-shadow: 0 0 0 0 #2268b3;
+  }
+  50% {
+    box-shadow: 0 0 40px -1px #2268b3;
+  }
+  to {
+    box-shadow: 0 0 0 0 #2268b3;
+  }
 }
 
 /* Standard syntax */
 @keyframes glowBig {
-  from { box-shadow: 0 0 0 0 #2268b3; }
-  50% { box-shadow: 0 0 40px -1px #2268b3; }
-  to { box-shadow: 0 0 0 0 #2268b3; }
+  from {
+    box-shadow: 0 0 0 0 #2268b3;
+  }
+  50% {
+    box-shadow: 0 0 40px -1px #2268b3;
+  }
+  to {
+    box-shadow: 0 0 0 0 #2268b3;
+  }
 }
 
 @media (min-width: 1600px) {
@@ -260,9 +297,11 @@ html, body, button, input, optgroup, select, textarea {
 .progress-bar.w-33 {
   width: 33.33%;
 }
+
 .progress-bar.w-66 {
   width: 66.66%;
 }
+
 .progress-bar.w-100 {
   width: 100%;
 }
@@ -287,4 +326,13 @@ html, body, button, input, optgroup, select, textarea {
 
 .faded-7 {
   opacity: 0.7;
+}
+
+.header {
+  background: #253447;
+  color: #fff;
+}
+
+.sub-header {
+  background: #f0f0f0;
 }
