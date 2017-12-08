@@ -94,25 +94,27 @@
     </div>
   </div>
 </div>
-<div class="container-fluid sub-header pt-4">
-  <div class="container">
-    <!--<h4>Historial de transacciones</h4>
-    <hr>
-    <div ng-if="!blockchain.length">
-      <p class="lead">
-        <i class="fa fa-2x fa-info-circle" style="opacity: 0.5"></i><br> Las transacciones realizadas se verán aquí
-      </p>
-    </div>-->
-    <div class="row">
-      <div ng-repeat="item in blockchain" class="col">
-        <div ng-class="{'blockchain-item': item.title, 'blockchain-placeholder': !item.title }" class="rounded  p-2 mb-2">
-          <h5>{{item.title}}</h5>
+<div class="container p-3">
+  <div class="container sub-header rounded">
+    <div class="scroller">
+      <div class="d-inline-block p-2" ng-repeat="item in blockchain">
+        <div class="blockchain-item rounded p-2">
+          <div class="row">
+            <div class="col">
+              <h5>{{item.title}}</h5>
+            </div>
+            <div class="col">
+              <h6 class="text-right">
+                #0{{$index + 1}}
+              </h6>
+            </div>
+          </div>
           <p style="color: #666">Bloque #0{{$index + 1}}<br><span style="color: #888;">{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} </span><br>
             <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
             <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
             <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
           </p>
-          <div style="height: 110px">
+          <div ng-show="item.ace" style="height: 130px">
             <div ng-show="item.ace" ng-model="item.ace" class="fade-in" ui-ace="{
                   useWrapMode : true,
                   showGutter: false,
@@ -152,22 +154,7 @@
       </div>
     </div>
     <div class="col-md m-3">
-      <div ng-if="!hideForm">
         <div ng-show="view.screen1">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-sm-8">
-              <div class="faded-7 row btn-menu">
-                <div class="col-sm align-self-center">
-                  <i class="fa fa-3x fa-user"></i>
-                  <br>
-                  <span class="mt-3 d-inline-block">
-                        Mi perfil
-                      </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
           <div class="row align-items-center justify-content-center">
             <div class="col-sm-8">
               <div ng-click="nextView('screen2')" style="cursor: pointer;" class="row p-2 btn-menu glow-big">
@@ -176,6 +163,20 @@
                   <br>
                   <span class="mt-3 d-inline-block">
                         Trámites
+                      </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-sm-8">
+              <div class="faded-7 row btn-menu">
+                <div class="col-sm align-self-center">
+                  <i class="fa fa-3x fa-user"></i>
+                  <br>
+                  <span class="mt-3 d-inline-block">
+                        Mi perfil
                       </span>
                 </div>
               </div>
@@ -277,35 +278,6 @@
               </div>
             </div>
           </form>
-
-          <br>
-          <!--<div class="form-group">
-            <label>Resultado:</label>
-          </div>
-
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th>Organización</th>
-              <th>Aprobación</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>BPS</td>
-              <td>
-                <div ng-show="data.bps"><img src="check.png"></div>
-              </td>
-
-            </tr>
-            <tr>
-              <td>DGI</td>
-              <td>
-                <div ng-show="data.dgi"><img src="check.png"></div>
-              </td>
-            </tr>
-            </tbody>
-          </table>-->
         </div>
         <div ng-show="view.screen4" class="pt-5">
           <h2 class="text-center">Trámite finalizado</h2>
@@ -313,10 +285,6 @@
             <button type="submit" ng-click="nextView('screen1')" class="btn btn-primary">Reiniciar</button>
           </div>
         </div>
-      </div>
-      <div ng-if="hideForm" class="p-3 rounded">
-
-      </div>
     </div>
     <!--<div class="col-md mt-3">
 

@@ -64,9 +64,6 @@ angular.module('x', ['ui.ace'])
     $scope.data = {};
 
     $scope.blockchain = [];
-    for (var i = 0; i < 5; i++) {
-      $scope.blockchain.push({})
-    }
 
     $scope.submit = function () {
       $scope.hideForm = true;
@@ -109,7 +106,7 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '02'
               };
-              $scope.blockchain[0] = newObj;
+              $scope.blockchain.push(newObj);
               cb(null, response.data);
             })
         },
@@ -135,8 +132,9 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '03'
               };
-              $scope.blockchain[1] = newObj;
+              $scope.blockchain.push(newObj);
               $scope.data.home = true;
+              $('.scroller').animate({ scrollLeft: '+=500'}, 500);
               cb(null, response.data);
             })
         },
@@ -157,8 +155,9 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '04'
               };
-              $scope.blockchain[2] = newObj;
+              $scope.blockchain.push(newObj);
               $scope.data.bps = true;
+              $('.scroller').animate({ scrollLeft: '+=500'}, 500);
               cb(null, response.data);
             })
         },
@@ -179,8 +178,9 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '05'
               };
-              $scope.blockchain[3] = newObj;
+              $scope.blockchain.push(newObj);
               $scope.data.dgi = true;
+              $('.scroller').animate({ scrollLeft: '+=500'}, 500);
               cb(null, response.data);
             })
         },
@@ -201,8 +201,9 @@ angular.module('x', ['ui.ace'])
                 date: new Date(),
                 num: '06'
               };
-              $scope.blockchain[4] = newObj;
+              $scope.blockchain.push(newObj);
               $scope.data.mtss = true;
+              $('.scroller').animate({ scrollLeft: '+=500'}, 500);
               $timeout(function () {
                 // var newObj = {
                 //   title: 'Trámite Aprobado',
@@ -212,6 +213,7 @@ angular.module('x', ['ui.ace'])
                 // $scope.blockchain.push(newObj);
                 // TODO trámite aprobado
                 $scope.nextView('screen4');
+                $('.scroller').scrollLeft(-400);
               }, 500);
               cb(null, response.data);
             })
