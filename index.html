@@ -95,33 +95,31 @@
   </div>
 </div>
 <div class="container p-3">
-  <div class="container sub-header rounded">
-    <div class="scroller">
-      <div class="d-inline-block p-2" ng-repeat="item in blockchain">
-        <div class="blockchain-item rounded p-2">
-          <div class="row">
-            <div class="col">
-              <h5>{{item.title}}</h5>
-            </div>
-            <div class="col">
-              <h6 class="text-right">
-                #0{{$index + 1}}
-              </h6>
-            </div>
+  <div class="scroller container sub-header rounded">
+    <div class="d-inline-block p-2" ng-repeat="item in blockchain">
+      <div class="blockchain-item rounded p-2">
+        <div class="row">
+          <div class="col">
+            <h5>{{item.title}}</h5>
           </div>
-          <p style="color: #666">Bloque #0{{$index + 1}}<br><span style="color: #888;">{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} </span><br>
-            <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
-            <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
-            <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
-          </p>
-          <div ng-show="item.ace" style="height: 130px">
-            <div ng-show="item.ace" ng-model="item.ace" class="fade-in" ui-ace="{
+          <div class="col">
+            <h6 class="text-right">
+              #0{{$index + 1}}
+            </h6>
+          </div>
+        </div>
+        <p style="color: #666">Bloque #0{{$index + 1}}<br><span style="color: #888;">{{ item.date | date : 'dd-MM-yyyy - hh:mm:ss a'}} </span><br>
+          <!--<span ng-if="item.status === 'PENDING'" class="badge badge-pill badge-warning">Pendiente</span>
+          <span ng-if="item.status === 'OK'" class="badge badge-pill badge-success">OK</span>
+          <span ng-if="item.status === 'ERROR'" class="badge badge-pill badge-danger">Error</span>-->
+        </p>
+        <div ng-show="item.ace" style="height: 130px">
+          <div ng-show="item.ace" ng-model="item.ace" class="fade-in" ui-ace="{
                   useWrapMode : true,
                   showGutter: false,
                   theme:'twilight',
                   mode: 'javascript',
                 }"></div>
-          </div>
         </div>
       </div>
     </div>
@@ -154,137 +152,137 @@
       </div>
     </div>
     <div class="col-md m-3">
-        <div ng-show="view.screen1">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-sm-8">
-              <div ng-click="nextView('screen2')" style="cursor: pointer;" class="row p-2 btn-menu glow-big">
-                <div class="col-sm align-self-center">
-                  <i class="fa fa-3x fa-envelope-open"></i>
-                  <br>
-                  <span class="mt-3 d-inline-block">
+      <div ng-show="view.screen1">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-sm-8">
+            <div ng-click="nextView('screen2')" style="cursor: pointer;" class="row p-2 btn-menu glow-big">
+              <div class="col-sm align-self-center">
+                <i class="fa fa-3x fa-envelope-open"></i>
+                <br>
+                <span class="mt-3 d-inline-block">
                         Trámites
                       </span>
-                </div>
               </div>
             </div>
           </div>
-          <br>
-          <div class="row align-items-center justify-content-center">
-            <div class="col-sm-8">
-              <div class="faded-7 row btn-menu">
-                <div class="col-sm align-self-center">
-                  <i class="fa fa-3x fa-user"></i>
-                  <br>
-                  <span class="mt-3 d-inline-block">
+        </div>
+        <br>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-sm-8">
+            <div class="faded-7 row btn-menu">
+              <div class="col-sm align-self-center">
+                <i class="fa fa-3x fa-user"></i>
+                <br>
+                <span class="mt-3 d-inline-block">
                         Mi perfil
                       </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-show="view.screen2">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-sm-8 mb-3">
+            <div class="faded-7 btn-menu btn-menu-sm">
+              <div class="row h-100 align-items-center">
+                <div class="col-sm">
+                  <i class="fa fa-2x fa-envelope-open"></i>
+                  <br>
+                  <span class="mt-3 d-inline-block">
+                      Solicitar beneficio
+                    </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div ng-show="view.screen2">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-sm-8 mb-3">
-              <div class="faded-7 btn-menu btn-menu-sm">
-                <div class="row h-100 align-items-center">
-                  <div class="col-sm">
-                    <i class="fa fa-2x fa-envelope-open"></i>
-                    <br>
-                    <span class="mt-3 d-inline-block">
-                      Solicitar beneficio
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center justify-content-center">
-            <div class="col-lg-4 mb-3">
-              <div class="faded-7 btn-menu btn-menu-sm btn-menu-light">
-                <div class="row h-100 align-items-center">
-                  <div class="col-sm">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-4 mb-3">
+            <div class="faded-7 btn-menu btn-menu-sm btn-menu-light">
+              <div class="row h-100 align-items-center">
+                <div class="col-sm">
                       <span>
                         Subsidio por enfermedad
                       </span>
-                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 mb-3">
-              <div class="col-sm">
-                <div ng-click="nextView('screen3')" style="cursor: pointer;"
-                     class="row btn-menu btn-menu-sm btn-menu-light glow">
-                  <div class="col-sm align-self-center">
+          </div>
+          <div class="col-lg-4 mb-3">
+            <div class="col-sm">
+              <div ng-click="nextView('screen3')" style="cursor: pointer;"
+                   class="row btn-menu btn-menu-sm btn-menu-light glow">
+                <div class="col-sm align-self-center">
                       <span>
                         Solicitud de obra
                       </span>
-                  </div>
                 </div>
               </div>
             </div>
-            <div class="w-100"></div>
-            <div class="col-lg-4 mb-3">
-              <div class="col-sm">
-                <div class="row faded-7 btn-menu btn-menu-sm btn-menu-light">
-                  <div class="col-sm align-self-center">
+          </div>
+          <div class="w-100"></div>
+          <div class="col-lg-4 mb-3">
+            <div class="col-sm">
+              <div class="row faded-7 btn-menu btn-menu-sm btn-menu-light">
+                <div class="col-sm align-self-center">
                       <span>
                         Asignación familiar
                       </span>
-                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 mb-3">
-              <div class="col-sm">
-                <div class="row faded-7 btn-menu btn-menu-sm btn-menu-light">
-                  <div class="col-sm align-self-center">
+          </div>
+          <div class="col-lg-4 mb-3">
+            <div class="col-sm">
+              <div class="row faded-7 btn-menu btn-menu-sm btn-menu-light">
+                <div class="col-sm align-self-center">
                       <span>
                         Pensión Por fallecimiento
                       </span>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div ng-show="view.screen3">
-          <form>
-            <div class="row justify-content-center">
-              <div class="col-sm-8">
+      </div>
+      <div ng-show="view.screen3">
+        <form>
+          <div class="row justify-content-center">
+            <div class="col-sm-8">
 
 
-                <div class="form-group">
-                  <label>Solicitante</label>
-                  <input ng-disabled="true" value="Juan P&eacute;rez" type="text" class="form-control"
-                         aria-describedby="emailHelp">
-                </div>
-
-                <div class="form-group">
-                  <label>Jornales a trabajar</label>
-                  <input type="text" ng-model="data.workHours" class="form-control">
-                </div>
-
-                <div class="form-group">
-                  <label>Inicio obra</label>
-                  <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.startDate">
-                </div>
-                <div class="form-group">
-                  <label>Fin obra</label>
-                  <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.endDate">
-                </div>
-
-                <button type="submit" ng-click="submit()" class="btn btn-primary">Enviar</button>
+              <div class="form-group">
+                <label>Solicitante</label>
+                <input ng-disabled="true" value="Juan P&eacute;rez" type="text" class="form-control"
+                       aria-describedby="emailHelp">
               </div>
+
+              <div class="form-group">
+                <label>Jornales a trabajar</label>
+                <input type="text" ng-model="data.workHours" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label>Inicio obra</label>
+                <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.startDate">
+              </div>
+              <div class="form-group">
+                <label>Fin obra</label>
+                <input type="date" class="form-control" aria-describedby="emailHelp" ng-model="data.endDate">
+              </div>
+
+              <button type="submit" ng-click="submit()" class="btn btn-primary">Enviar</button>
             </div>
-          </form>
-        </div>
-        <div ng-show="view.screen4" class="pt-5">
-          <h2 class="text-center">Trámite finalizado</h2>
-          <div class="text-center pt-4">
-            <button type="submit" ng-click="nextView('screen1')" class="btn btn-primary">Reiniciar</button>
           </div>
+        </form>
+      </div>
+      <div ng-show="view.screen4" class="pt-5">
+        <h2 class="text-center">Trámite finalizado</h2>
+        <div class="text-center pt-4">
+          <button type="submit" ng-click="nextView('screen1')" class="btn btn-primary">Reiniciar</button>
         </div>
+      </div>
     </div>
     <!--<div class="col-md mt-3">
 
